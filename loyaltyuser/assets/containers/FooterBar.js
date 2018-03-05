@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Icon} from 'native-base';
 import {connect} from 'react-redux';
 import {TouchableOpacity, View, Text} from 'react-native';
+import { Actions, ActionConst } from 'react-native-router-flux';
 import * as actions from '../actions';
 
 class FooterBar extends Component {
@@ -30,19 +31,19 @@ class FooterBar extends Component {
               activeIconStyle = this.activeIconStyle.bind(this);
         return (
             <View style={container}>
-                <TouchableOpacity style={button} onPress={() => {selectFooter('search')}}>
+                <TouchableOpacity style={button} onPress={() => {selectFooter('search'); Actions.Main({type: ActionConst.RESET})}} activeOpacity={1}>
                     <Icon name="search" style={iconStyle('search')} active={activeIconStyle('search')}/>
                     <Text style={textStyle('search')}>Search</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={button} onPress={() => {selectFooter('list')}}>
+                <TouchableOpacity style={button} onPress={() => {selectFooter('list')}} activeOpacity={1}>
                     <Icon name="list" style={iconStyle('list')} active={activeIconStyle('list')}/>
                     <Text style={textStyle('list')}>List</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={button} onPress={() => {selectFooter('scanner')}}>
+                <TouchableOpacity style={button} onPress={() => {selectFooter('scanner'); Actions.Scanner({type: ActionConst.RESET})}} activeOpacity={1}>
                     <Icon name="qr-scanner" style={iconStyle('scanner')} active={activeIconStyle('scanner')}/>
                     <Text style={textStyle('scanner')}>Scanner</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={button} onPress={() => {selectFooter('profile')}}>
+                <TouchableOpacity style={button} onPress={() => {selectFooter('profile')}} activeOpacity={1}>
                     <Icon name="person" style={iconStyle('profile')} active={activeIconStyle('profile')}/>
                     <Text style={textStyle('profile')}>Profile</Text>
                 </TouchableOpacity>

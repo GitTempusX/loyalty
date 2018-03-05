@@ -12,6 +12,7 @@ import reducers from './assets/reducers';
 import Login from './assets/containers/Login';
 import SignIn from './assets/containers/SignIn';
 import Logout from './assets/containers/Logout';
+import Scanner from './assets/containers/Scanner';
 
 export default class App extends Component {
   
@@ -53,7 +54,6 @@ export default class App extends Component {
             <Scene
               key='Login'
               component={Login}
-              initial
             />
             <Scene 
               key='Logout'
@@ -63,10 +63,15 @@ export default class App extends Component {
               key='SignIn'
               component={SignIn}
             />
-            <Scene key='Main'>
+            <Scene key='Main' initial>
               <Scene key='Products' component={ProductsList} title='Products List' initial/>
               <Scene key='QRCode' component={QRScreen} title='Codigo QR'/>
             </Scene>
+
+            <Scene
+              key='Scanner'
+              component={Scanner}
+            />
           </Scene>
             
         </Router>

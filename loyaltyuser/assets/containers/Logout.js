@@ -2,7 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import firebase from 'firebase';
 import { Button, Container, Text } from 'native-base';
-import { Actions } from 'react-native-router-flux';
+import { Actions, ActionConst } from 'react-native-router-flux';
 
 export default class Login extends React.Component {
     render(){
@@ -10,7 +10,7 @@ export default class Login extends React.Component {
             <Container style={styles.fondo}>
             <Button bordered 
              style={styles.boton}
-             onPress={() => {firebase.auth().signOut(); Actions.Main() }} >
+             onPress={() => {firebase.auth().signOut(); Actions.Main({type: ActionConst.RESET}) }} >
             <Text> Log Out </Text> 
             </Button>
             </Container>
