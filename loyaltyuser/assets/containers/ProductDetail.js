@@ -7,6 +7,8 @@ import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
+import Modal from 'react-native-modalbox';
+
 class ProductDetail extends Component {
 
     constructor(props){
@@ -28,7 +30,7 @@ class ProductDetail extends Component {
                 </View>
             <View style={BottomViewStyle}>
                 <Text style={PointsStyle}>{Points} Points</Text>
-                <Button danger onPress={() => {this.props.selectProduct(this.props.product); Actions.QRCode()}} style={ButtonStyle}>
+                <Button danger onPress={() => {this.props.selectProduct(this.props.product); this.props.moduleFunction();{/*Actions.QRCode()*/} }} style={ButtonStyle}>
                     <Text style={ButtonTextStyle}>Obtener</Text>
                 </Button>
             </View>
