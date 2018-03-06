@@ -31,7 +31,7 @@ class FooterBar extends Component {
               activeIconStyle = this.activeIconStyle.bind(this);
         return (
             <View style={container}>
-                <TouchableOpacity style={button} onPress={() => {selectFooter('search'); Actions.Main({type: ActionConst.RESET})}} activeOpacity={1}>
+                <TouchableOpacity style={button} onPress={() => {selectFooter('search'); Actions.Products()}} activeOpacity={1}>
                     <Icon name="search" style={iconStyle('search')} active={activeIconStyle('search')}/>
                     <Text style={textStyle('search')}>Search</Text>
                 </TouchableOpacity>
@@ -39,7 +39,7 @@ class FooterBar extends Component {
                     <Icon name="list" style={iconStyle('list')} active={activeIconStyle('list')}/>
                     <Text style={textStyle('list')}>List</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={button} onPress={() => {selectFooter('scanner'); Actions.Scanner({type: ActionConst.RESET})}} activeOpacity={1}>
+                <TouchableOpacity style={button} onPress={() => {selectFooter('scanner'); Actions.Scanner()}} activeOpacity={1}>
                     <Icon name="qr-scanner" style={iconStyle('scanner')} active={activeIconStyle('scanner')}/>
                     <Text style={textStyle('scanner')}>Scanner</Text>
                 </TouchableOpacity>

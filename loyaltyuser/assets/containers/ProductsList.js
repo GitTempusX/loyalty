@@ -54,9 +54,10 @@ class ProductsList extends Component{
     render(){
         return(
             <View style={styles.container}>
-            <Modal style={[styles.modal, styles.modal3]} position={"center"} ref={"modal3"} isDisabled={this.state.isDisabled}>
-                <QRScreen/>
-            </Modal>
+                <Modal style={[styles.modal, styles.modal3]} position={"center"} ref={"modal3"} isDisabled={this.state.isDisabled}>
+                    <QRScreen/>
+                </Modal>
+                <Header headerText='Products List'/>
                 <ScrollView>
                     {this.state.productsLoaded ? this.renderPrices() : null}
                 </ScrollView>

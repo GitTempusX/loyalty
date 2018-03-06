@@ -2,6 +2,7 @@ import React from 'react';
 import { Dimensions, Text, View, Alert } from 'react-native';
 import { BarCodeScanner, Permissions } from 'expo';
 import FooterBar from './FooterBar';
+import Header from './Header';
 
 export default class Scanner extends React.Component {
   state = {
@@ -25,24 +26,33 @@ export default class Scanner extends React.Component {
 
     if (hasCameraPermission === null) {
       return (
-        <View style={{ flex: 1, justifyContent: 'flex-end', backgroundColor: '#fff'}}>
-        <FooterBar/>
-      </View>
+          <View style={{flex: 1}}>
+            <Header/>
+            <View style={{ flex: 1, justifyContent: 'flex-end', backgroundColor: '#fff'}}>
+                <FooterBar/>
+            </View>
+          </View>
+
       );
     } else if (hasCameraPermission === false) {
       return <Text>No access to camera</Text>;
     } else {
       return (
-        <View style={{ flex: 1, justifyContent: 'flex-end', backgroundColor: '#fff'}}>
-          <BarCodeScanner
-            onBarCodeRead={this._handleBarCodeRead}
-            style={{                    
-                height: Dimensions.get('window').height/1.6,
-                width: Dimensions.get('window').width,
-                marginBottom: '20%' 
-            }}
-          />
-          <FooterBar/>
+        <View style={{flex: 1}}>
+          <Header/>
+          <View style={{ flex: 1, justifyContent: 'flex-end', backgroundColor: '#fff'}}>
+            <BarCodeScanner
+                onBarCodeRead={this._handleBarCodeRead}
+                style={{    
+                    flex: 1                
+                    // height: Dimensions.get('window').height/1.6,
+                    // width: Dimensions.get('window').width,
+                    // marginBottom: '20%' 
+                }}
+            />
+            <FooterBar/>
+          </View>
+
         </View>
       );
     }

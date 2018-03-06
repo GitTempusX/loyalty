@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import {Scene, Router} from 'react-native-router-flux';
+import {Scene, Router, Tabs} from 'react-native-router-flux';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
 import firebase from 'firebase';
@@ -63,15 +63,13 @@ export default class App extends Component {
               key='SignIn'
               component={SignIn}
             />
-            <Scene key='Main' initial>
-              <Scene key='Products' component={ProductsList} title='Products List' initial/>
-              <Scene key='QRCode' component={QRScreen} title='Codigo QR'/>
+            <Scene key="Main" initial>
+                <Tabs key="tabs" hideTabBar>
+                    <Scene key="Products" component={ProductsList} hideNavBar/>
+                    <Scene key="Scanner" component={Scanner} hideNavBar/>
+                </Tabs>
             </Scene>
 
-            <Scene
-              key='Scanner'
-              component={Scanner}
-            />
           </Scene>
             
         </Router>
